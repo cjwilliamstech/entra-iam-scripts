@@ -134,3 +134,11 @@ Identifies inactive Entra ID accounts based on last sign-in activity.
 ---
 
 ## Repository Structure
+
+```
+entra-iam-scripts/
+├── scripts/          # PowerShell automation scripts
+├── logs/             # Audit logs and CSV reports (git ignored)
+├── docs/             # Additional documentation
+└── .gitignore        # Excludes logs and credentials
+```
