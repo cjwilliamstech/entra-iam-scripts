@@ -122,14 +122,42 @@ Identifies inactive Entra ID accounts based on last sign-in activity.
 
 ---
 
+### Get-UserAccessReport.ps1
+
+Generates an access report showing group memberships and directory role assignments for one or all users.
+
+**Features:**
+
+- Single user mode — detailed breakdown of groups and roles for a specific UPN
+- Full tenant mode — summary table of all active users with group and role counts
+- Exports findings to timestamped CSV in `logs/`
+- `-WhatIf` support for pre-flight testing
+
+**Required Scopes:** `User.Read.All`, `Directory.Read.All`, `RoleManagement.Read.Directory`
+
+**Usage:**
+
+```powershell
+# Single user detailed report
+.\scripts\Get-UserAccessReport.ps1 -UserPrincipalName "admin@contoso.onmicrosoft.com"
+
+# Full tenant report
+.\scripts\Get-UserAccessReport.ps1
+
+# Include disabled accounts
+.\scripts\Get-UserAccessReport.ps1 -IncludeDisabled
+```
+
+---
+
 ## Planned Scripts
 
-| Script | Description | Status |
-|---|---|---|
-| `Get-UserAccessReport.ps1` | Report on user role and group memberships | Planned |
-| `Set-ConditionalAccessReport.ps1` | Audit and report Conditional Access policies | Planned |
-| `AI Access Review Summarizer` | Python + Azure OpenAI access review summaries | Planned |
-| `Stale Access Anomaly Detector` | PowerShell + Azure OpenAI anomaly detection | Planned |
+| Script                            | Description                                   | Status      |
+| --------------------------------- | --------------------------------------------- | ----------- |
+| `Get-UserAccessReport.ps1`        | Report on user role and group memberships     | ✅ Complete |
+| `Set-ConditionalAccessReport.ps1` | Audit and report Conditional Access policies  | Planned     |
+| `AI Access Review Summarizer`     | Python + Azure OpenAI access review summaries | Planned     |
+| `Stale Access Anomaly Detector`   | PowerShell + Azure OpenAI anomaly detection   | Planned     |
 
 ---
 
