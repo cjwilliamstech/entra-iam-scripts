@@ -150,12 +150,45 @@ Generates an access report showing group memberships and directory role assignme
 
 ---
 
+### Get-ConditionalAccessReport.ps1
+
+Audits and reports all Conditional Access policies in Microsoft Entra ID.
+
+**Features:**
+- Summary table of all policies with state, targets, and grant controls
+- Detailed per-policy breakdown including users, groups, apps, conditions, and session controls
+- Resolves GUIDs to display names — flags unresolvable objects as potential misconfigurations
+- Configurable output format — console, CSV, or both
+- Filter by policy state — All, Enabled, Disabled, or ReportOnly
+- `-WhatIf` support for pre-flight testing
+
+**Required Scopes:** `Policy.Read.All`, `Directory.Read.All`
+
+**Usage:**
+```powershell
+# Full report - console and CSV
+.\scripts\Get-ConditionalAccessReport.ps1
+
+# Enabled policies only, console output only
+.\scripts\Get-ConditionalAccessReport.ps1 -PolicyState Enabled -OutputFormat ConsoleOnly
+
+# CSV export only
+.\scripts\Get-ConditionalAccessReport.ps1 -OutputFormat CSVOnly
+
+# Dry run
+.\scripts\Get-ConditionalAccessReport.ps1 -WhatIf
+```
+
+---
+
 ## Planned Scripts
 
 | Script                            | Description                                   | Status      |
 | --------------------------------- | --------------------------------------------- | ----------- |
 | `Get-UserAccessReport.ps1`        | Report on user role and group memberships     | ✅ Complete |
-| `Set-ConditionalAccessReport.ps1` | Audit and report Conditional Access policies  | Planned     |
+| `Get-ConditionalAccessReport.ps1` | Audit and report Conditional Access policies  | ✅ Complete |
+|
+Planned     |
 | `AI Access Review Summarizer`     | Python + Azure OpenAI access review summaries | Planned     |
 | `Stale Access Anomaly Detector`   | PowerShell + Azure OpenAI anomaly detection   | Planned     |
 
