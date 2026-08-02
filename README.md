@@ -187,8 +187,6 @@ Audits and reports all Conditional Access policies in Microsoft Entra ID.
 | --------------------------------- | --------------------------------------------- | ----------- |
 | `Get-UserAccessReport.ps1`        | Report on user role and group memberships     | ✅ Complete |
 | `Get-ConditionalAccessReport.ps1` | Audit and report Conditional Access policies  | ✅ Complete |
-|
-Planned     |
 | `AI Access Review Summarizer`     | Python + Azure OpenAI access review summaries | Planned     |
 | `Stale Access Anomaly Detector`   | PowerShell + Azure OpenAI anomaly detection   | Planned     |
 
