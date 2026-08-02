@@ -181,14 +181,51 @@ Audits and reports all Conditional Access policies in Microsoft Entra ID.
 
 ---
 
+### Import-EntraUsersFromCsv.ps1
+
+Bulk provisions Entra ID users from a CSV file via Microsoft Graph.
+
+**Features:**
+- Validates CSV structure before processing — fails fast on missing columns
+- Handles spaces in names automatically — strips from UPN, preserves in display name
+- Interactive duplicate handling — prompt per user or auto-skip with `-SkipDuplicates`
+- Exports timestamped results CSV with temp passwords and status per user
+- Progress bar shows real-time processing status
+- `-WhatIf` support for pre-flight testing
+
+**Required Scopes:** `User.ReadWrite.All`, `Directory.ReadWrite.All`
+
+**CSV Format:**
+```csv
+FirstName,LastName,Department,JobTitle,UsageLocation
+John,Doe,IT,Help Desk Analyst,US
+```
+
+**Usage:**
+```powershell
+# Interactive mode
+.\scripts\Import-EntraUsersFromCsv.ps1 -CsvPath "./samples/bulk-users-template.csv"
+
+# Auto-skip duplicates
+.\scripts\Import-EntraUsersFromCsv.ps1 -CsvPath "./samples/bulk-users-template.csv" -SkipDuplicates
+
+# Dry run
+.\scripts\Import-EntraUsersFromCsv.ps1 -CsvPath "./samples/bulk-users-template.csv" -WhatIf
+```
+---
+
 ## Planned Scripts
 
-| Script                            | Description                                   | Status      |
-| --------------------------------- | --------------------------------------------- | ----------- |
-| `Get-UserAccessReport.ps1`        | Report on user role and group memberships     | ✅ Complete |
-| `Get-ConditionalAccessReport.ps1` | Audit and report Conditional Access policies  | ✅ Complete |
-| `AI Access Review Summarizer`     | Python + Azure OpenAI access review summaries | Planned     |
-| `Stale Access Anomaly Detector`   | PowerShell + Azure OpenAI anomaly detection   | Planned     |
+| Script                              | Description                                   | Status      |
+| ----------------------------------- | --------------------------------------------- | ----------- |
+| `New-EntraUser.ps1`                 | Interactive user provisioning with loop       | ✅ Complete |
+| `Remove-EntraUser.ps1`              | Six-step structured offboarding               | ✅ Complete |
+| `Get-StaleAccounts.ps1`             | Stale account detection with CSV export       | ✅ Complete |
+| `Get-UserAccessReport.ps1`          | User role and group membership reporting      | ✅ Complete |
+| `Get-ConditionalAccessReport.ps1`   | Audit and report Conditional Access policies  | ✅ Complete |
+| `Import-EntraUsersFromCsv.ps1`      | Bulk user provisioning from CSV               | ✅ Complete |
+| `AI Access Review Summarizer`       | Python + Azure OpenAI access review summaries | Planned     |
+| `Stale Access Anomaly Detector`     | PowerShell + Azure OpenAI anomaly detection   | Planned     |
 
 ---
 
