@@ -234,6 +234,7 @@ John,Doe,IT,Help Desk Analyst,US
 ```
 entra-iam-scripts/
 ├── scripts/          # PowerShell automation scripts
+├── samples/          # CSV templates and sample input files
 ├── logs/             # Audit logs and CSV reports (git ignored)
 ├── docs/             # Additional documentation
 └── .gitignore        # Excludes logs and credentials
