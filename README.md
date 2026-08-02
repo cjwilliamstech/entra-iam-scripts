@@ -229,7 +229,7 @@ John,Doe,IT,Help Desk Analyst,US
 
 ---
 
-## Repository Structures
+## Repository Structure
 
 ```
 entra-iam-scripts/
